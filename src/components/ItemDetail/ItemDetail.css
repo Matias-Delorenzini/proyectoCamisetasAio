@@ -1,0 +1,14 @@
+.Header,.ItemFooter{
+    background-color: rgb(32, 32, 32);
+    color: antiquewhite;
+}
+
+img{
+    background-color: white;
+    border-radius: 20px;
+    border: 5px solid rgb(83, 83, 83);
+}
+
+body{
+    background-color: #161616;
+}

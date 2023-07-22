@@ -2,3 +2,13 @@
     width: 200px;
     height: auto;
 }
+
+p{
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(145, 133, 90);
+}
+
+footer.ItemFooter{
+    background-color: black;
+}

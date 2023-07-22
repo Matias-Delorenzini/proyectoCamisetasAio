@@ -6,7 +6,7 @@ const NavBar = () => {
     return (
         <nav>
             <Link to={'/'}>
-                <h3>Pivot Camisetas</h3>
+                <h3 className="h3Title">CAMISETAS STORE</h3>
             </Link>
             <div className="Categories">
                 <NavLink to={"/category/premier"} className={({ isActive}) => isActive? "ActiveOption" : "Option"}>Premier League</NavLink>

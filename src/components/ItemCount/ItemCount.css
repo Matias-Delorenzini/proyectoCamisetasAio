@@ -1,0 +1,16 @@
+.Controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: row;
+}
+
+.Button{
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(255, 185, 33);
+    color: black;
+    font-weight: 600;
+    font-family:monospace;
+}

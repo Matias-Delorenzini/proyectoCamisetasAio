@@ -1,4 +1,27 @@
-nav{
+Nav{
+    background-color: rgb(22, 22, 22);
+}
+
+.Categories{
     display: flex;
-    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    color:  white;
+    gap: 10vw;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a:hover{
+    color: rgb(255, 185, 33);
+}
+
+.h3Title{
+    color: rgb(255, 185, 33);
+}
+.h3Title:hover{
+    color: wrgb(255, 185, 33);
 }
