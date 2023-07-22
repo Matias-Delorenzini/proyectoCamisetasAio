@@ -1,15 +1,17 @@
 import CartWidget from "../CartWidget/CartWidget"
+import { NavLink, Link } from "react-router-dom"
 
 const NavBar = () => {
     return (
         <nav>
-            <h3>Pivot Camisetas</h3>
-            <div>
-                <button className="btn btn-primary">Clubes</button>
-                <button className="btn btn-primary">Selecciones Nacionales</button>
-                <button className="btn btn-primary">Ediciones Especiales</button>
-                <button className="btn btn-primary">Retro</button>
-                <button className="btn btn-primary">Temporadas Futuras</button>
+            <Link to={'/'}>
+                <h3>Pivot Camisetas</h3>
+            </Link>
+            <div className="Categories">
+                <NavLink to={"/category/premier"} className={({ isActive}) => isActive? "ActiveOption" : "Option"}>Premier League</NavLink>
+                <NavLink to={"/category/seriea"} className={({ isActive}) => isActive? "ActiveOption" : "Option"}>Serie A</NavLink>
+                <NavLink to={"/category/bundesliga"} className={({ isActive}) => isActive? "ActiveOption" : "Option"}>Bundesliga</NavLink>
+                <NavLink to={"/category/laliga"} className={({ isActive}) => isActive? "ActiveOption" : "Option"}>LaLiga</NavLink>
             </div>
             <CartWidget />
         </nav>
