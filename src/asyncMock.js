@@ -92,7 +92,7 @@ export const getProducts = () => {
 export const getProductById = (productId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.filter(prod => prod.id === parseInt(productId)))
+            resolve(products.find(prod => prod.id === parseInt(productId)))
         }, 500)
     })
 }
