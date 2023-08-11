@@ -1,28 +1,27 @@
-import "./ItemDetail.css"
-import ItemCount from "../ItemCount/ItemCount"
-
-const ItemDetail = ({id, name, price, category, img, stock}) => {
-    console.log(img)
-    return (
-        <article className="CardItem">
-            <header className="Header">
-                <h2 className="ItemHeader">
-                    {name}
-                </h2>
-            </header>
-            <picture>
-                <img src={img} alt={name} className="ItemImg"/>
-            </picture>
-            <section className="Info">
-                <p className="InfoPrice">${price}</p>
-                <p className="InfoStock">Unidades disponibles: {stock} ¡No te quedes sin la tuya!</p>
-            </section>
-            <footer className="ItemFooter">
-                <ItemCount stock={stock} initial={1} onAdd={(quantity) => console.log("Cantidad agregada: ", {quantity} )}/>
-            </footer>
-        </article>
-    )
-}
-
-export default ItemDetail
+//import "./ItemDetail.css"
+//import ItemCount from "../ItemCount/ItemCount"
+//import { Link } from "react-router-dom"
+//
+//
+//const ItemDetail = ({product}) => {
+//    console.log(product.stock)
+//    return (
+//        <div style={{ marginBottom: "100px" }}>
+//        <div>
+//          <img width={600} src={product.img} alt="imagen"></img>
+//        </div>
+//        <div>
+//          <h2>{product.title}</h2>
+//        </div>
+//        <div>
+//          <h4>$ {product.price}</h4>
+//          <small>{product.description}</small>
+//        </div>
+//        <ItemCount stock={product.stock}/>
+//      </div>
+//    
+//    )
+//}
+//
+//export default ItemDetail
 

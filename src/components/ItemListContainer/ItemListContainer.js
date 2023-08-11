@@ -1,27 +1,37 @@
-import { getProducts, getProductsByCategory } from "../../asyncMock"
 import { useState, useEffect } from "react";
-import ItemList  from "../ItemList/ItemList";
+import { getData, getCategoryData } from "../../services/firebase";
 import { useParams } from "react-router-dom";
-import "./ItemListContainer.css"
+import ItemList from "../ItemList/ItemList";
+import { Ring } from "@uiball/loaders";
 
-const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
-    
-    const { categoryId } = useParams()
+function ItemListContainer() {
+  const [products, setProducts] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
-        
-        asyncFunc(categoryId)
-            .then(response => {setProducts(response)})
-            .catch(error => {console.error(error)})
-}, [categoryId])
+  const { categoryId } = useParams();
 
-    return (
-        <div>
-            <h1 className="Greeting">{greeting}</h1>
-            <ItemList products={products}/>
-        </div>
-    )
+  useEffect(() => {
+    setIsLoading(true);
+    async function requestProducts() {
+      let respuesta = categoryId
+        ? await getCategoryData(categoryId)
+        : await getData();
+      setProducts(respuesta);
+      setIsLoading(false);
+    }
+
+    requestProducts();
+  }, [categoryId]);
+
+  if (isLoading) {
+    return <Ring size={100} lineWeight={5} speed={1} color="blue" />;
+  } else {
+    return products.length === 0 ? (
+      <p>No hay productos disponibles para esa consulta.</p>
+    ) : (
+      <ItemList products={products} />
+    );
+  }
 }
-export default ItemListContainer 
+
+export default ItemListContainer;

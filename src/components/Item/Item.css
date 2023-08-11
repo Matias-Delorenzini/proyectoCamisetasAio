@@ -1,14 +1,21 @@
 .ItemImg{
     width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-color: white;
+}
+
+.Link{
+    width: 300px;
     height: auto;
 }
 
-p{
-    font-size: x-large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(145, 133, 90);
+.Link:hover{
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+
 }
 
-footer.ItemFooter{
-    background-color: black;
+.item-card_header{
+    font-size: large;
 }
