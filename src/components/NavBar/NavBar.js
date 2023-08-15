@@ -7,7 +7,7 @@ export default function NavBar() {
     return (
         <nav className="Nav">
             <Link to={'/'} className="LinkTitle">
-                <h3 className="h3Title">CAMISETAS STORE</h3>
+                <h3 className="h3Title">CAMISETAS DELORENZINI</h3>
             </Link>
             <ul className="Categories">
                 <li>
