@@ -2,10 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
-import "./CartContainer.css";
+import "./Cart.css";
 import cartwidget from './assets/cart.svg'
 
-function CartContainer() {
+function Cart() {
     const { cart, removeItem, clearCart } = useContext(cartContext);
     const totalAmount = cart.reduce((total, item) => total + item.price * item.count, 0);
 
@@ -42,4 +42,4 @@ function CartContainer() {
     );
 }
 
-export default CartContainer;
+export default Cart;

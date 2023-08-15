@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getData, getCategoryData } from "../../services/firebase";
 import { useParams } from "react-router-dom";
-import ItemList from "./ItemList/ItemList";
+import ItemList from "../ItemList/ItemList";
 import { Jelly } from "@uiball/loaders";
 import "./ItemListContainer.css"
 
