@@ -33,6 +33,7 @@ function ItemDetail({ product, maxItems, isAddedToCart, onAddToCart, itemInCart 
                     <h4 className="ProductTitle">{product.name}</h4>
                     <h4 className="ProductPrice">$ {product.price}</h4>
                     <small className="ProductP">{product.description}</small>
+                    <h4 className="ProductStock">Stock: {product.stock}</h4>
                     {product.stock > 0 ? ( isAddedToCart ? (
                         <div>
                             <ItemCount stock={maxItems} onConfirm={onAddToCart} />
