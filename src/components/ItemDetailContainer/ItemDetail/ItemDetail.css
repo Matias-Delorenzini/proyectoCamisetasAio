@@ -1,0 +1,40 @@
+.Details{
+    display: flex;
+    justify-content: space-around   ;
+    flex-direction: row;
+}
+
+.InfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.DetailPicture{
+    height: 70vh;
+    pointer-events: none;
+    border-radius: 10px;
+    background-color: rgb(22, 22, 22);
+}
+
+.h2AddedInfo{
+    color:#ffb921;
+    font-size: larger;
+}
+
+.OutOfStock{
+    color: rgb(255, 115, 115);
+}
+
+.ProductP{
+    width: 600px;
+}
+
+.ProductPrice{
+    color: white;
+}
+
+.ProductTitle{
+    color: white;
+}

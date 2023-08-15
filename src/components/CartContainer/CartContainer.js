@@ -2,35 +2,44 @@ import React from "react";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
-
+import "./CartContainer.css";
+import cartwidget from './assets/cart.svg'
 
 function CartContainer() {
-  const { cart, removeItem, clearCart } = useContext(cartContext);
+    const { cart, removeItem, clearCart } = useContext(cartContext);
+    const totalAmount = cart.reduce((total, item) => total + item.price * item.count, 0);
 
-  // Calcular la suma total de los precios
-  const totalAmount = cart.reduce((total, item) => total + item.price * item.count, 0);
-
-  return (
-    <div>
-      <h1>Cart</h1>
-      {cart.map((item) => (
-        <div key={item.id}>
-          <h2>{item.name}</h2>
-          {Array.from({ length: item.count }, (_, index) => (
-            <img key={index} width={50} src={item.img} alt="imagen" />
-          ))}
-          <p>Precio unitario: ${item.price}</p>
-          <p>Cantidad: {item.count}</p>
-          <p>Precio total: ${item.count * item.price}</p>
-          <button onClick={() => removeItem(item.id)}>Eliminar</button>
+    return (
+        <div className="Cart">
+            <img className="CartImg" src={cartwidget} alt="cart-widget"/>
+            {cart.length > 0 ? (
+                <div>
+                    {cart.map((item) => (
+                        <div key={item.id} className="CartItem">
+                            <h2>{item.name}</h2>
+                            {Array.from({ length: item.count }, (_, index) => (
+                                <img key={index} width={50} src={item.img} alt="Cart Item Icon" />
+                            ))}
+                            <div>
+                                <p>Precio unitario: ${item.price}</p>
+                                <p>Cantidad: {item.count}</p>
+                                <p>Precio total: ${item.count * item.price}</p>
+                                <button onClick={() => removeItem(item.id)} className="Remove"> ✕ </button>
+                            </div>
+                        </div>
+                    ))}
+                    <br />
+                    <div className="CartControls">
+                        <Link to="/checkout" className="ToCheckout">Comprar</Link>
+                        <div>Total a pagar: ${totalAmount}</div>
+                        <button onClick={clearCart} className="EmptyCart">Vaciar Carrito</button>
+                    </div>
+                </div>
+            ) : (
+                <div className="EmptyCartMessage">Carrito vacío</div>
+            )}
         </div>
-      ))}
-      <br />
-      <div>Total a pagar: ${totalAmount}</div>
-      <button onClick={clearCart}>Vaciar Carrito</button>
-      <Link to="/checkout">Comprar</Link>
-    </div>
-  );
+    );
 }
 
 export default CartContainer;

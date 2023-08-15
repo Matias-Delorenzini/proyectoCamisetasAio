@@ -2,25 +2,29 @@ import { useState, createContext } from "react";
 
 const cartContext = createContext({ cart: [] });
 
-// Custom provider
-// CartContextProvider (custom componente) !== cartContext.Provider (componente default)
-
 function CartContextProvider(props) {
-  const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
 
-  function addToCart(product, count) {
-    const newCart = [...cart];
-    if (isInCart(product.id)) {
-      const indexUpdate = cart.findIndex((item) => item.id === product.id);
-      newCart[indexUpdate].count += count;
-      setCart(newCart);
+    function addToCart(product, count) {
+        const newCart = [...cart];
+        const existingCartItem = cart.find((item) => item.id === product.id);
+
+    if (existingCartItem) {
+        const totalSelectedItems = existingCartItem.count + count;
+        if (totalSelectedItems > product.stock) {
+            return;
+        }
+        existingCartItem.count += count;
+        setCart(newCart);
     } else {
-      const newItemInCart = { ...product, count };
-      newCart.push(newItemInCart);
-      setCart(newCart);
-      //setCart( [...cart, { ...product, count}]) -> otra forma de hacerlo
+        if (count > product.stock) {
+            return;
+        }
+        const newItemInCart = { ...product, count };
+        newCart.push(newItemInCart);
+        setCart(newCart);
     }
-  }
+}
 
   function isInCart(id) {
     return cart.some((item) => item.id === id);
@@ -56,7 +60,8 @@ function CartContextProvider(props) {
 
   return (
     <cartContext.Provider
-      value={{
+    value={{
+        isInCart,
         getItemInCart,
         cart,
         addToCart,
@@ -64,11 +69,11 @@ function CartContextProvider(props) {
         clearCart,
         getTotalItemsInCart,
         getTotalPriceInCart,
-      }}
+    }}
     >
-      {props.children}
+    {props.children}
     </cartContext.Provider>
-  );
+);
 }
 
 export { cartContext, CartContextProvider };

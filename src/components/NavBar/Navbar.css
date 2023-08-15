@@ -1,14 +1,20 @@
-Nav{
-    background-color: rgb(22, 22, 22);
+.Nav{
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 2vh;
 }
 
 .Categories{
     display: flex;
     justify-content:center;
     align-items: center;
-    color:  white;
-    gap: 10vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 40px;
+    list-style-type: none;
 }
+
+a, a:hover, a:active, a:visited { color: white; }
 
 a{
     color: white;
@@ -21,7 +27,16 @@ a:hover{
 
 .h3Title{
     color: rgb(255, 185, 33);
+    font-size: xx-large;
 }
 .h3Title:hover{
     color: wrgb(255, 185, 33);
+}
+
+.LinkTitle{
+    text-align: center;
+}
+
+.CartWidget{
+    text-align: center;
 }

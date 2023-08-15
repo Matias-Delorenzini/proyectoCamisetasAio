@@ -1,0 +1,20 @@
+.CheckoutInput{ 
+    display: "flex"; 
+}
+
+form{
+    text-align: center;
+    font-size: larger;
+}
+
+.LabelInput{
+    margin: 5px;
+    width: "100px";
+    margin-right: 4 
+}
+
+.CheckoutButton{
+    margin-top: 10px;
+    border: none;
+    margin: 5px;
+}

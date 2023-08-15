@@ -1,0 +1,51 @@
+.Cart{
+    margin: 5vw;
+    margin-top: 2vh;
+    background-color: #FFD67D;
+    color: rgb(15, 15, 15);
+    border-radius: 15px;
+    padding: 2vw;
+}
+
+.CartItem{
+    background-color: #fddd97;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.CartControls{
+    color: black;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+Link{
+    color: black;
+}
+
+.EmptyCart{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    background-color: rgb(255, 115, 115);
+}
+
+.ToCheckout{
+    font-weight: bold;
+    background-color: rgb(120, 255, 115);
+}
+
+.DataRow{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Remove{
+    border: none;
+    background-color: rgb(255, 115, 115);
+    border-radius: 500px;
+}
+
+.EmptyCartMessage{
+    color: rgb(255, 115, 115);
+}

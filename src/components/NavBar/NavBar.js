@@ -1,28 +1,37 @@
-import CartWidget from "../CartWidget/CartWidget"
+import CartWidget from "./CartWidget/CartWidget"
 import { Link } from "react-router-dom"
 import "./Navbar.css"
+import { NavLink } from "react-router-dom"
 
 export default function NavBar() {
     return (
-        <nav>
-            <Link to={'/'}>
+        <nav className="Nav">
+            <Link to={'/'} className="LinkTitle">
                 <h3 className="h3Title">CAMISETAS STORE</h3>
             </Link>
-            <ul>
+            <ul className="Categories">
                 <li>
-                    <Link className="nav-link" to="/category/premier">premier</Link>
+                    <NavLink to="/category/premier">Premier League</NavLink>
                 </li>
                 <li>
-                    <Link className="nav-link" to="/category/seriea">seriea</Link>
+                    <NavLink to="/category/seriea">Serie A</NavLink>
                 </li>
                 <li>
-                    <Link className="nav-link" to="/category/bundesliga">bundesliga</Link>
+                    <NavLink to="/category/bundesliga">Bundesliga</NavLink>
                 </li>
                 <li>
-                    <Link className="nav-link" to="/category/laliga">laliga</Link>
+                    <NavLink to="/category/laliga">LaLiga</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/category/others">Otros</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/category/national">Selecciones</NavLink>
                 </li>
             </ul>
-            <CartWidget />
+            <div className="CartWidget">
+                <CartWidget />
+            </div>
         </nav>
     )
 }
