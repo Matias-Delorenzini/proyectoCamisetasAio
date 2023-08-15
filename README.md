@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+Matías Delorenzini Proyecto Final
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Éste proyecto es el front-end de una webapp de tipo e-commerce que usa Firestore como base de datos. Está basada en un ecommerce de camisetas de fútbol. 
 
-## Available Scripts
+Listado y detalle de productos:
+    El componente ItemListContainer muestra el catálogo de camisetas adecuandose al contexto de categoría e ItemDetailContainer muestra el detalle de cada producto al usuario
 
-In the project directory, you can run:
+Navegación:
+    Se usa React Router para navegar a través de las diferentes partes de la página a través de enlaces en el NavBar, sin recargas de página en ningún momento
 
-### `npm start`
+Carrito de compras:
+    El CartContext almacena el estado del carrito, mostrado en el componente Cart. Al confirmar una compra se añade a Firestore
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Experiencia de usuario:
+    La sección de "Selecciones" actua como ejemplo de renderizado condicional donde, al no existir camisetas con la categoría adecuada, no renderiza ningún Item y solo muestra un mensaje predefinido "Recibiremos productos de ésta categoría proximamente."
+    De la misma forma, de no haber stock de un producto, por ejemplo, la camiseta del Inter de Miami (se puede encontrar en otros), se muestra un mensaje que indica que no hay stock, y los controles de selección no se muestran. Lo mismo ocurre si no hay items en el Cart, ocultando el widget y los controles del Cart (de haberlo vaciado estando en la ruta /cart)
+    Le es imposible al usuario solicitar más productos de los que hay en stock, ya que los controles de selección se bloquean al superar la cantidad de stock en el carrito (teniendo como referencia la cantidad de stock NO agregada). Por ejemplo, hay 20 camisetas en stock de Juventus. Si el usuario ingresa 15, ahora el máximo a lo que llega Itemcount es 5. Un cartel informa la cantidad que hay en stock. Al confirmar la compra se solicita nombre, apellido y tarjeta de crédito y se muestra una lista de los productos comprados junto al id de compra que se carga a Firestore. 
