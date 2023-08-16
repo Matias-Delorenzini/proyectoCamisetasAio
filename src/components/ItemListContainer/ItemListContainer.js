@@ -23,7 +23,11 @@ function ItemListContainer() {
 	if (isLoading) {
 		return <div className="Jelly"><Jelly size={75} lineWeight={5} speed={0.5} color="#FFB921"/></div>;
 	} else {
-		return products.length === 0 ? (<p>Recibiremos productos de ésta categoría proximamente.</p>) : (<ItemList products={products} />);
+		return products.length === 0 ? (
+		<div className="NoProductsContainer">
+			<p className="NoProducts">Recibiremos productos de ésta categoría proximamente.</p>
+		</div>
+		) : (<ItemList products={products} />);
 	}
 }
 

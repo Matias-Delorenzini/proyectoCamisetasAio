@@ -34,10 +34,28 @@ function CartContextProvider(props) {
     return cart.find((item) => item.id === id);
   }
 
-  function removeItem(id) {
-    setCart(cart.filter((item) => item.id !== id));
+  function removeItem(itemId, removeAll = false) {
+    setCart((prevCart) => {
+      const updatedCart = prevCart.map((item) => {
+        if (item.id === itemId) {
+          if (removeAll || item.count === 1) {
+            return null; // Eliminar el producto
+          } else {
+            return { ...item, count: item.count - 1 };
+          }
+        }
+        return item;
+      }).filter((item) => item !== null);
+
+      return updatedCart;
+    });
   }
 
+  function canRemoveAll(itemId) {
+    const item = cart.find((item) => item.id === itemId);
+    return item && item.count > 1;
+  }
+  
   function clearCart() {
     setCart([]); 
   }
@@ -69,6 +87,7 @@ function CartContextProvider(props) {
         clearCart,
         getTotalItemsInCart,
         getTotalPriceInCart,
+        canRemoveAll
     }}
     >
     {props.children}

@@ -1,14 +1,14 @@
 .Cart{
     margin: 5vw;
     margin-top: 2vh;
-    background-color: #FFD67D;
-    color: rgb(15, 15, 15);
+    background-color: #666666;
+    color: white;
     border-radius: 15px;
     padding: 2vw;
 }
 
 .CartItem{
-    background-color: #fddd97;
+    background-color: #2e2e2e;
     border-radius: 10px;
     padding: 10px;
 }
@@ -44,6 +44,7 @@ Link{
     border: none;
     background-color: rgb(255, 115, 115);
     border-radius: 500px;
+    margin-right: 50px;
 }
 
 .EmptyCartMessage{

@@ -42,7 +42,9 @@ function ItemDetail({ product, maxItems, isAddedToCart, onAddToCart, itemInCart 
                             <p className="OutOfStock">No hay stock disponible</p>
                     )}
                     {itemInCart && (
-                        <h2 className="h2AddedInfo">{itemInCart.count} en el carrito</h2>
+                        <Link to={`/cart`}>
+                            <h2 className="h2AddedInfo">{itemInCart.count} en el carrito</h2>
+                        </Link>
                     )}
                 </div>
             </div>

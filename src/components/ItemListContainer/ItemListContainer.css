@@ -9,3 +9,15 @@
     width: 100%;
     height: 100%;
 }
+
+.NoProducts{
+    color: rgb(165, 165, 165);
+    font-size: x-large;
+}
+
+.NoProductsContainer{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

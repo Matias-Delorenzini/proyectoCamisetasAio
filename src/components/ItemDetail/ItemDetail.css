@@ -29,6 +29,8 @@
 
 .ProductP{
     width: 600px;
+    color: rgb(138, 138, 138);
+    font-size:medium;
 }
 
 .ProductPrice{
