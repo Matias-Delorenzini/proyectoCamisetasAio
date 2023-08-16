@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getOrder } from "../../services/firebase";
+import "./OrderConfirm.css"
 
 function OrderConfirm() {
 	const [orderData, setOrderData] = useState(null);
@@ -13,7 +14,7 @@ function OrderConfirm() {
 	}, [id]);
 
 	return (
-		<div>
+		<div className="Orderconfirm">
 			<h1>Gracias por tu compra!</h1>
 			{orderData !== null ? (
 				<div>

@@ -48,7 +48,7 @@ function Checkout() {
     }
 
     return (
-        <form>
+        <form className="FormCheckout">
             <h2>Completa tus datos para completar la compra</h2>
             <div className="CheckoutInput">
                 <label htmlFor="lastname" className="LabelInput">Nombre</label>
